@@ -1,0 +1,43 @@
+#N canvas 369 105 974 674 10;
+#X obj 277 320 outlet~;
+#X obj 277 100 inlet~;
+#X obj 250 176 *~;
+#X obj 277 136 delwrite~ \$0-delayLine 2000;
+#X obj 286 160 r \$0-feedback_decay_s;
+#N canvas 773 343 450 300 initialise 0;
+#X obj 360 78 loadbang;
+#X msg 83 94 0.6;
+#X obj 83 115 s \$0-feedback_decay_r;
+#X msg 233 94 200;
+#X obj 233 115 s \$0-feedback_delay_r;
+#X connect 0 0 1 0;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X connect 3 0 4 0;
+#X restore 541 165 pd initialise;
+#X obj 331 100 inlet~;
+#X obj 277 193 r \$0-feedback_delay_s;
+#X obj 277 235 line~;
+#X obj 277 258 delread4~ \$0-delayLine;
+#X msg 277 214 \$1 20;
+#X text 329 228 delay adjustment hard coded to 20 ms smoothing time
+;
+#X text 100 101 SIG~;
+#X text 101 165 OUT~;
+#X floatatom 103 150 5 0 0 0 - #0-feedback_delay_r #0-feedback_delay_s
+, f 5;
+#X obj 110 117 hsl 80 15 0 0.99 0 0 \$0-feedback_decay_s \$0-feedback_decay_r
+empty -2 -8 0 10 -262144 -1 -1 0 1;
+#X text 104 133 feedback decay;
+#X text 136 150 delay [ms];
+#X text 154 101 DEL+/-~;
+#X connect 1 0 3 0;
+#X connect 2 0 3 0;
+#X connect 4 0 2 1;
+#X connect 6 0 9 0;
+#X connect 7 0 10 0;
+#X connect 8 0 9 0;
+#X connect 9 0 0 0;
+#X connect 9 0 2 0;
+#X connect 10 0 8 0;
+#X coords 0 -1 1 1 100 80 2 100 100;

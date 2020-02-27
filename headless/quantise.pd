@@ -1,0 +1,14 @@
+#N canvas 831 22 450 300 10;
+#X obj 59 135 expr~ (floor($i2 * $v1) + ceil($i2 * $v1)) / (2 * $i2)
+;
+#X obj 59 111 inlet~;
+#X obj 59 157 outlet~;
+#X obj 380 110 inlet;
+#X text 58 92 signal;
+#X text 364 90 resolution;
+#X text 43 26 rounds the incoming signal to the nearest integer value
+\, creating a stepped waveform. Higher resolutions yield a smoother
+waveform;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 3 0 0 1;

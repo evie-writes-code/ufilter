@@ -1,0 +1,26 @@
+#N canvas 10 191 756 369 10;
+#X obj 13 205 inlet~;
+#X obj 13 301 outlet~;
+#X text 100 101 SIG~;
+#X text 100 164 OUT~;
+#X text 166 101 DEPTH;
+#X obj 124 206 inlet;
+#X floatatom 132 127 6 0 0 0 - #0-signal_depth_r #0-signal_depth_s
+, f 6;
+#X text 112 144 SIGNAL DEPTH;
+#X obj 124 227 s \$0-signal_depth_r;
+#N canvas 719 250 450 300 initialise 0;
+#X obj 345 99 loadbang;
+#X msg 175 115 4;
+#X obj 175 136 s \$0-signal_depth_r;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X restore 417 205 pd initialise;
+#X obj 13 278 ./headless/quantise;
+#X obj 124 257 r \$0-signal_depth_s;
+#X text 305 99 GUI wrapper for ufilter/headless/quantise;
+#X connect 0 0 10 0;
+#X connect 5 0 8 0;
+#X connect 10 0 1 0;
+#X connect 11 0 10 1;
+#X coords 0 -1 1 1 100 80 2 100 100;

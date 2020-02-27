@@ -1,0 +1,17 @@
+#N canvas 139 87 817 334 10;
+#X text 101 100 SIG~;
+#X text 111 129 downsampling;
+#X text 106 142 factor (number;
+#X text 115 154 of samples);
+#X text 101 165 OUT~;
+#X floatatom 131 114 6 0 0 0 - #0-downsample_factor_r #0-downsample_factor_s
+, f 6;
+#X obj 425 173 r \$0-downsample_factor_s;
+#X obj 296 192 ./headless/downsampler;
+#X obj 296 172 inlet~;
+#X obj 296 213 outlet~;
+#X text 286 106 GUI wrapper for ufilter/headless/downsampler;
+#X connect 6 0 7 1;
+#X connect 7 0 9 0;
+#X connect 8 0 7 0;
+#X coords 0 -1 1 1 100 80 2 100 100;
