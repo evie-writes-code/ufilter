@@ -1,0 +1,18 @@
+#N canvas 369 105 390 279 10;
+#X obj 108 241 outlet~;
+#X obj 108 81 inlet~;
+#X obj 191 157 *~;
+#X obj 156 81 inlet~;
+#X obj 108 179 delread4~ \$0-delayLine;
+#X obj 206 81 inlet;
+#X obj 108 127 delwrite~ \$0-delayLine \$1;
+#X text 88 58 signal~;
+#X text 208 58 decay;
+#X text 158 58 delay~;
+#X connect 1 0 6 0;
+#X connect 2 0 6 0;
+#X connect 3 0 4 0;
+#X connect 4 0 0 0;
+#X connect 4 0 2 0;
+#X connect 5 0 2 1;
+#X coords 0 279 1 278 100 80 0;
