@@ -1,0 +1,27 @@
+#N canvas 0 23 1440 855 10;
+#X obj 136 257 block~ 1;
+#X obj 261 149 inlet~;
+#X obj 261 267 delwrite~ \$0-delay_line \$1;
+#X obj 441 170 delread4~ \$0-delay_line;
+#X obj 441 191 *~, f 17;
+#X obj 441 149 inlet~;
+#X obj 540 149 inlet~;
+#X text 70 38 echo module w hard clip inline running on block size
+1 \, enable single-sample delay times.;
+#X text 256 128 signal in~;
+#X text 406 128 feedback delay~;
+#X text 516 128 feedback decay~;
+#X obj 441 212 clip~ -1 1;
+#X obj 630 313 outlet~;
+#X obj 660 149 inlet~;
+#X text 636 128 lowpass cutoff~;
+#X obj 441 233 vcf~ 1, f 32;
+#X connect 1 0 2 0;
+#X connect 3 0 4 0;
+#X connect 4 0 11 0;
+#X connect 5 0 3 0;
+#X connect 6 0 4 1;
+#X connect 11 0 15 0;
+#X connect 13 0 15 1;
+#X connect 15 0 2 0;
+#X connect 15 0 12 0;
