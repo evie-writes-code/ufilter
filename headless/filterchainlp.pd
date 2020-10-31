@@ -1,4 +1,4 @@
-#N canvas 0 22 396 428 10;
+#N canvas 0 23 396 428 10;
 #X obj 67 77 inlet~;
 #X obj 148 77 inlet;
 #X obj 124 125 >= 1;
@@ -86,6 +86,8 @@
 #X connect 7 0 4 0;
 #X restore 67 298 pd lowPass;
 #X obj 67 330 outlet~;
+#X msg 239 99 \$1 20;
+#X obj 239 120 line 4 5;
 #X connect 0 0 10 0;
 #X connect 1 0 2 0;
 #X connect 1 0 3 0;
@@ -95,11 +97,13 @@
 #X connect 3 0 11 2;
 #X connect 4 0 12 2;
 #X connect 5 0 13 2;
-#X connect 8 0 10 1;
-#X connect 8 0 11 1;
-#X connect 8 0 12 1;
-#X connect 8 0 13 1;
+#X connect 8 0 15 0;
 #X connect 10 0 11 0;
 #X connect 11 0 12 0;
 #X connect 12 0 13 0;
 #X connect 13 0 14 0;
+#X connect 15 0 16 0;
+#X connect 16 0 10 1;
+#X connect 16 0 11 1;
+#X connect 16 0 12 1;
+#X connect 16 0 13 1;
